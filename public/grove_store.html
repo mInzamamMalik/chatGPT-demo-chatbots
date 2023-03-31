@@ -40,7 +40,7 @@
                 const query = document.querySelector("#query").value;
                 const result = document.querySelector("#result")
 
-                result.innerText += `${restart_sequence} ${query}`
+                result.innerText = `${restart_sequence} ${query}` + result.innerText
 
                 console.log(event.target.reset());
                 const res = await axios.post("/groove", {
@@ -51,7 +51,7 @@
 
                 console.log("response: ", res.data.choices[0].text);
 
-                result.innerText += `${start_sequence} ${res.data.choices[0].text}`
+                result.innerText = `${start_sequence} ${res.data.choices[0].text}` + result.innerText;
 
             } catch (error) {
                 console.log("error: ", error.response || error);
