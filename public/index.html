@@ -52,6 +52,7 @@
     </form>
 
     <p id="result"></p>
+    <p id="hidden" style="display: none;"></p>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script type="module">
@@ -64,12 +65,14 @@
 
                 const query = document.querySelector("#query").value;
                 const result = document.querySelector("#result")
+                const hidden = document.querySelector("#hidden")
 
                 result.innerText = `${restart_sequence} ${query}` + result.innerText
+                hidden.innerText += `${restart_sequence} ${query}`
 
                 console.log(event.target.reset());
                 const res = await axios.post("/depression", {
-                    "text": result.innerText,
+                    "text": hidden.innerText,
                     "gender": document.querySelector("#gender").value,
                     "country": document.querySelector("#country").value,
                     start_sequence,
@@ -81,6 +84,7 @@
                 console.log("response: ", res.data.choices[0].text);
 
                 result.innerText = `${start_sequence} ${res.data.choices[0].text}` + result.innerText;
+                hidden.innerText += `${start_sequence} ${res.data.choices[0].text}`
 
             } catch (error) {
                 console.log("error: ", error.response || error);
