@@ -80,7 +80,7 @@
                 console.log("response: ", res.data.choices[0]);
                 console.log("response: ", res.data.choices[0].text);
 
-                result.innerText += `${start_sequence} ${res.data.choices[0].text}`
+                result.innerText = `${start_sequence} ${res.data.choices[0].text}` + result.innerText;
 
             } catch (error) {
                 console.log("error: ", error.response || error);
