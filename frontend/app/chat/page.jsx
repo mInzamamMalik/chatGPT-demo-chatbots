@@ -1,4 +1,4 @@
-import { Chat } from "@/components";
+import { Chat, SetUserProfile } from "@/components";
 
 export default function page() {
   return (
@@ -8,6 +8,7 @@ export default function page() {
         malfunction, so please set your profile in the beginning of the
         conversation and do not change through out the conversation.
       </p>
+	  <SetUserProfile/>
       <Chat />
     </div>
   );

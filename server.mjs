@@ -21,7 +21,8 @@ app.use((req, res, next) => {
 
 app.post("/depression", async (req, res) => {
   const rule = `The following is a conversation with a expert depression counselor and Psychiatrists. counselor is helpful and very friendly and shows empathy, love and affection occasionally. the patient is ${req.body.gender} from ${req.body.country}. \n`;
-  console.log(rule);
+  // console.log(rule);
+  console.log("🚀 ~ file: server.mjs:23 ~ app.post ~ req:", req.body)
 
   const result = await textGeneration(
     rule,
@@ -82,7 +83,7 @@ const textGeneration = async (rule, prompt, start_sequence) => {
       }
     );
 
-    console.log(response.data);
+    console.log('response.data',response.data);
     return response.data;
   } catch (error) {
     console.log("error: ", error?.response?.data || error);
