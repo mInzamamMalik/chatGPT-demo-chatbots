@@ -2,6 +2,7 @@ import express, { urlencoded, json } from "express";
 import * as dotenv from "dotenv";
 import axios from "axios";
 import path from "path";
+import cors from "cors";
 
 const __dirname = path.resolve();
 
@@ -10,6 +11,7 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5001;
 
+app.use(cors());
 app.use(urlencoded({ extended: true }));
 app.use(json());
 app.use((req, res, next) => {
@@ -34,7 +36,7 @@ app.post("/apple", async (req, res) => {
   const rule = `The following is a conversation with a salesman at https://apple.com. The salesman is fully trained, helpful and very friendly. remember salesman only talk about product and does not respond to anything else. also remember we don't deliver in Pakistan. \n`;
 
   const start_sequence = "\nApple Store:";
-//   const restart_sequence = "\nYou: ";
+  //   const restart_sequence = "\nYou: ";
 
   const result = await textGeneration(rule, req.body.text, start_sequence);
 
@@ -45,7 +47,7 @@ app.post("/groove", async (req, res) => {
   const rule = `The following is a conversation with a salesman at https://www.groovepillows.co.uk. The assistant is helpful and very friendly. remember sales man only talk about product and does'nt respond anything else. also remember we don't deliver in UK but only in USA. \n`;
 
   const start_sequence = "\nGrove Pillow:";
-//   const restart_sequence = "\nYou: ";
+  //   const restart_sequence = "\nYou: ";
 
   const result = await textGeneration(rule, req.body.text, start_sequence);
 
