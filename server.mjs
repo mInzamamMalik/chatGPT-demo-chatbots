@@ -22,7 +22,7 @@ app.use((req, res, next) => {
 app.post("/depression", async (req, res) => {
   const rule = `The following is a conversation with a expert depression counselor and Psychiatrists. counselor is helpful and very friendly and shows empathy, love and affection occasionally. the patient is ${req.body.gender} from ${req.body.country}. \n`;
   // console.log(rule);
-  console.log("🚀 ~ file: server.mjs:23 ~ app.post ~ req:", req.body)
+  // console.log("🚀 ~ file: server.mjs:23 ~ app.post ~ req:", req.body)
 
   const result = await textGeneration(
     rule,
@@ -63,25 +63,25 @@ app.listen(PORT, () => {
 
 const textGeneration = async (rule, prompt, start_sequence) => {
   try {
-    const response = await axios.post(
-      "https://api.openai.com/v1/completions",
-      {
-        model: "text-davinci-003",
-        prompt: `${rule} \n\n ${prompt} \n ${start_sequence}`,
-        temperature: 0.9,
-        max_tokens: 150,
-        top_p: 1,
-        frequency_penalty: 0,
-        presence_penalty: 0.6,
-        stop: ["You:"],
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    // const response = await axios.post(
+    //   "https://api.openai.com/v1/completions",
+    //   {
+    //     model: "text-davinci-003",
+    //     prompt: `${rule} \n\n ${prompt} \n ${start_sequence}`,
+    //     temperature: 0.9,
+    //     max_tokens: 150,
+    //     top_p: 1,
+    //     frequency_penalty: 0,
+    //     presence_penalty: 0.6,
+    //     stop: ["You:"],
+    //   },
+    //   {
+    //     headers: {
+    //       Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
+    //       "Content-Type": "application/json",
+    //     },
+    //   }
+    // );
 
     console.log('response.data',response.data);
     return response.data;

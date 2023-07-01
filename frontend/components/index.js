@@ -1,9 +1,7 @@
-import Chat from "./Chat";
+import ChatFrom from "./ChatFrom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import Button from "./Button";
 import SetUserProfile from "./SetUserProfile";
 
-
-
-export { Chat, Button, SetUserProfile, Navbar, Footer };
+export { ChatFrom, Button, SetUserProfile, Navbar, Footer };

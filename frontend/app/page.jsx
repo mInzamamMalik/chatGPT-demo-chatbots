@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="container mx-auto border-2 border-red-500 p-8">
+    <main className="">
       <h1>Depression Counselor Chatbot</h1>
 
       <h3>
