@@ -1,4 +1,6 @@
 "use client";
+import axios from "axios";
+import { SERVER_LINK } from "@/lib/getServerUrl";
 
 const countries = [
   "pakistan",
@@ -14,7 +16,10 @@ const countries = [
 ];
 
 export default function Chat() {
-  const submitHandler = async (event) => {
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    console.log("ke", SERVER_LINK);
+
     try {
       const start_sequence = "\n\nCounselor:";
       const restart_sequence = "\n\nYou: ";
@@ -26,7 +31,7 @@ export default function Chat() {
       // window.hidden += `${restart_sequence} ${query}`
 
       console.log(event.target.reset());
-      const res = await axios.post("/depression", {
+      const res = await axios.post(`${SERVER_LINK}/depression`, {
         text: window.hidden,
         gender: document.querySelector("#gender").value,
         country: document.querySelector("#country").value,
