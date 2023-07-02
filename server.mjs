@@ -68,13 +68,13 @@ const textGeneration = async (rule, prompt, start_sequence) => {
       frequency_penalty: 0,
       presence_penalty: 0.6,
       stop: ["You:"],
+    },
+    {
+      headers: {
+        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
+        "Content-Type": "application/json",
+      }, 
     }
-    //   {
-    //     headers: {
-    //       Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
-    //       "Content-Type": "application/json",
-    //     },
-    //   }
   );
 
   console.log("response.data", response.data);

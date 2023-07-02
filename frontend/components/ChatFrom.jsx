@@ -1,6 +1,6 @@
 "use client";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { SERVER_URL } from "@/lib/getServerUrl";
 import { toast } from "react-hot-toast";
 import { AiOutlineSend } from "react-icons/ai";
@@ -9,40 +9,36 @@ import { BsRobot } from "react-icons/bs";
 export default function ChatFrom() {
   const [query, setQuery] = useState("");
   const [conversation, setConversation] = useState("");
-  let profile = localStorage.getItem("profile");
-  profile = JSON.parse(profile);
-
   const [chats, setChats] = useState([]);
 
   const submitHandler = async (e) => {
-    e.preventDefault();
-    if (!query) return;
     try {
+      e.preventDefault();
+      if (!query) return;
+      const profile = JSON.parse(localStorage.getItem("profile"));
       const start_sequence = " Counselor: ";
       const restart_sequence = " You: ";
 
       setChats((prev) => [...prev, { counselor: false, text: query }]);
       setConversation((prev) => (prev += `${restart_sequence} ${query}`));
 
-      const res = await axios.post(`${SERVER_URL}/depression`, {
-        text: conversation,
-        gender: profile.gender,
-        country: profile.country,
-        start_sequence,
-        restart_sequence,
-      });
+      // const res = await axios.post(`${SERVER_URL}/depression`, {
+      //   text: conversation,
+      //   gender: profile.gender,
+      //   country: profile.country,
+      //   start_sequence,
+      //   restart_sequence,
+      // });
 
-      console.log("response::: ", res?.data?.choices);
-      // console.log("response: ", res.data.choices[0].text);
+      // console.log("response::: ", res?.data);
 
-      const gptReply = res?.data?.choices[0]?.text;
-      // const gptReply = "Welcome to our Depression Counselor Chatbot! Our innovative chatbot, powered by the state-of-the-art GPT-3.5 language model, is designed to provide empathetic and supportive assistance to individuals struggling with depression.\n\nDepression is a serious mental health condition that affects millions of people worldwide, and seeking help is an important step towards recovery. Our chatbot serves as a virtual companion, providing a safe and confidential space for you to express your thoughts and emotions.";
+      // const gptReply = res?.data?.choices[0]?.text;
+      const gptReply = `Welcome to our Depression ${profile.gender} Counselor ${profile.country} Chatbot! Our innovative chatbot, powered by the state-of-the-art GPT-3.5 language model, is designed to provide empathetic and supportive assistance to individuals struggling with depression.\n\nDepression is a serious mental health condition that affects millions of people worldwide, and seeking help is an important step towards recovery. Our chatbot serves as a virtual companion, providing a safe and confidential space for you to express your thoughts and emotions.`;
       // const gptReply = "Welcome to our Depression";
-
 
       setChats((prev) => [...prev, { counselor: true, text: gptReply }]);
       setConversation((prev) => (prev += `${start_sequence} ${gptReply}`));
-      e.target.reset()
+      e.target.reset();
     } catch (err) {
       toast.error(`${err?.response?.data?.message || "Unknown Error"}`);
       console.log("err::: ", err);
@@ -59,7 +55,7 @@ export default function ChatFrom() {
           >
             {chat.counselor ? (
               <p className="flex items-end text-left">
-                <BsRobot className="mr-2 w-8 h-8 inline text-3xl" />
+                <BsRobot className="mr-2 inline h-8 w-8 text-3xl" />
                 <span className="rounded-2xl rounded-bl-none border border-primary p-2 ">
                   {chat.text}
                 </span>
