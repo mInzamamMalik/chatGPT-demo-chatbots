@@ -2,15 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --primary-color: #ee28eb;
+  --secondary-color: #292647;
+  /* --accent-low-op: #30f71190; */
+  /* --acc-navy: #0b2ef4; */
+}
+
 .S_Underline {
   @apply after:absolute after:-bottom-[1px] after:left-0 after:h-[2px] after:w-0 after:bg-slate-800 after:transition-all after:duration-500 after:content-[''];
 }
 
-:root {
-  --primary-color: #2849ee;
-  --secondary-color: #292647;
-  /* --accent-low-op: #30f71190; */
-  /* --acc-navy: #0b2ef4; */
+*::selection {
+  background-color: var(--primary-color);
+  color: aliceblue;
+}
+*::selection {
+  background-color: var(--primary-color);
+  color: aliceblue;
 }
 
 .bdr {

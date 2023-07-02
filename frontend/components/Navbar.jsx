@@ -8,11 +8,11 @@ import { RxCross1 } from "react-icons/rx";
 import { usePathname } from "next/navigation";
 
 const navLinks = [
-	{ title: "home", link: "/", id: "1" },
-	{ title: "Chat", link: "/chat", id: "2" },
-	// { title: "Apple Store", link: "/apple-store", id: "3" },
-	// { title: "Grove Store", link: "/grove-store", id: "4" },
-  ];
+  { title: "home", link: "/", id: "1" },
+  { title: "Chat", link: "/chat", id: "2" },
+  // { title: "Apple Store", link: "/apple-store", id: "3" },
+  // { title: "Grove Store", link: "/grove-store", id: "4" },
+];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -49,8 +49,8 @@ export default function Navbar() {
           </div>
         </div>
         <div className="nav-bar z-30 w-full rounded-sm bg-white px-4 md:px-8">
-          <div className="m-auto flex  h-16 items-center justify-between rounded-sm">
-            <Link className="flex items-center justify-self-start" href={"/"}>
+          <div className="m-auto flex h-16 items-center justify-between rounded-sm">
+            <Link className="flex items-center justify-self-start" href="/">
               <Image
                 className="h-12 w-12"
                 src={logo}
@@ -58,8 +58,8 @@ export default function Navbar() {
                 width={50}
                 height={50}
               />
-              <h1 className="justify-self-center pl-2 text-2xl font-extrabold text-primary">
-			  Depression counselor
+              <h1 className="justify-self-center pl-2 text-2xl font-extrabold text-slate-700">
+                Depression counselor
               </h1>
             </Link>
             <div className="hidden items-center gap-5 text-secondary md:flex lg:gap-10">
@@ -78,17 +78,17 @@ export default function Navbar() {
               ))}
             </div>
 
-              <div
-                className={`block justify-self-end md:hidden ${
-                  open && "opacity-0"
-                }`}
-              >
-                <FiMenu
-                  size={24}
-                  className={`h-8 w-8 text-primary`}
-                  onClick={() => setOpen(true)}
-                />
-              </div>
+            <div
+              className={`block justify-self-end md:hidden ${
+                open && "opacity-0"
+              }`}
+            >
+              <FiMenu
+                size={24}
+                className={`h-8 w-8 text-primary`}
+                onClick={() => setOpen(true)}
+              />
+            </div>
           </div>
         </div>
       </div>
