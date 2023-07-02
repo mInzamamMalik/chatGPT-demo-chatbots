@@ -22,7 +22,7 @@ app.use((req, res, next) => {
 app.post("/depression", async (req, res) => {
   const rule = `The following is a conversation with a expert depression counselor and Psychiatrists. counselor is helpful and very friendly and shows empathy, love and affection occasionally. the patient is ${req.body.gender} from ${req.body.country}. \n`;
   // console.log(rule);
-  console.log("🚀 ~ file: server.mjs:23 ~ app.post ~ req:", req.body);
+  // console.log("🚀 ~ file: server.mjs:23 ~ app.post ~ req:", req.body);
 
   if (
     !req.body.text ||
@@ -41,7 +41,7 @@ app.post("/depression", async (req, res) => {
       req.body.start_sequence
     );
 
-    res.send(result);
+    res.status(200).send(result);
   } catch (err) {
     console.log("err:this23 ", err);
     res.status(500).send({
