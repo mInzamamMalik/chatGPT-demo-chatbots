@@ -1,6 +1,7 @@
 "use client";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
+// import { useEffect, useState } from "react";
 import { SERVER_URL } from "@/lib/getServerUrl";
 import { toast } from "react-hot-toast";
 import { AiOutlineSend } from "react-icons/ai";
@@ -10,6 +11,8 @@ export default function ChatFrom() {
   const [query, setQuery] = useState("");
   const [conversation, setConversation] = useState("");
   const [chats, setChats] = useState([]);
+
+  const chatWindowRef = useRef(null);
 
   const submitHandler = async (e) => {
     try {
@@ -45,28 +48,46 @@ export default function ChatFrom() {
     }
   };
 
+  useEffect(() => {
+    if (chatWindowRef.current) {
+      const chatWindow = chatWindowRef.current;
+      console.log("Scrolling to bottom...");
+      chatWindow.scrollTop = chatWindow.scrollHeight;
+    }
+  }, [chats]);
+
   return (
     <div className="flex h-full flex-col justify-end">
-      <div className="flex h-[67vh] flex-col overflow-y-scroll text-lg">
-        {chats.map((chat, i) => (
-          <div
-            className={`${chat.counselor ? "self-start" : "self-end"}`}
-            key={i}
-          >
-            {chat.counselor ? (
-              <p className="flex items-end text-left">
-                <BsRobot className="mr-2 inline h-8 w-8 text-3xl" />
-                <span className="rounded-2xl rounded-bl-none border border-primary p-2 ">
+      <div className={`${chats ? "translate-y-10" : "translate-y-24"}`}>
+        <div
+          ref={chatWindowRef}
+          id="chat-window"
+          className={`no_scroll gap-5 py-14 px-2 flex flex-col overflow-y-scroll text-lg transition-height duration-300 ${
+            chats.length > 0 ? "h-[725px]" : "h-0"
+          }`}
+        >
+          {chats.map((chat, i) => (
+            <div
+              className={`${chat.counselor ? "self-start" : "self-end"}`}
+              key={i}
+            >
+              {chat.counselor ? (
+                <p className="flex items-end text-left">
+                  <div>
+                    <BsRobot className="mr-2 inline h-8 w-8 text-3xl" />
+                  </div>
+                  <span className="rounded-2xl rounded-bl-none border border-primary p-2 ">
+                    {chat.text}
+                  </span>
+                </p>
+              ) : (
+                <p className="inline rounded-2xl rounded-br-none bg-primary p-2 text-right">
                   {chat.text}
-                </span>
-              </p>
-            ) : (
-              <p className="inline rounded-2xl rounded-br-none bg-primary p-2 text-right">
-                {chat.text}
-              </p>
-            )}
-          </div>
-        ))}
+                </p>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
 
       <form className="relative flex" onSubmit={submitHandler}>

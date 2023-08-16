@@ -35,6 +35,15 @@
   border: 2px solid yellow;
 }
 
+.no_scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.no_scroll {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
 /* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
