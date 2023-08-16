@@ -6,7 +6,14 @@ const app = express();
 const PORT = process.env.PORT || 5001;
 
 // Middlewares
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3000",
+      "https://chatgpt-chatbot-shehza-d.vercel.app",
+    ],
+  })
+);
 app.use(urlencoded({ extended: true }));
 app.use(json());
 app.use((req, res, next) => {
