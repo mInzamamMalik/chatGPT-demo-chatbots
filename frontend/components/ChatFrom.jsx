@@ -11,6 +11,8 @@ export default function ChatFrom() {
 
   const [query, setQuery] = useState("");
   const [chats, setChats] = useState([]);
+  let conversation = "";
+  console.log("🚀 ~ file: ChatFrom.jsx:5 ~ SERVER_URL:", SERVER_URL);
 
   const submitHandler = async (e) => {
     try {
@@ -19,7 +21,6 @@ export default function ChatFrom() {
       const profile = JSON.parse(localStorage.getItem("profile"));
       const start_sequence = " Counselor: ";
       const restart_sequence = " You: ";
-      let conversation = "";
 
       setChats((prev) => [...prev, { counselor: false, text: query }]);
       conversation += `${restart_sequence} ${query}`;
@@ -54,7 +55,7 @@ export default function ChatFrom() {
   useEffect(() => {
     if (chatWindowRef.current) {
       const chatWindow = chatWindowRef.current;
-      console.log("Scrolling to bottom...");
+      // console.log("Scrolling to bottom...");
       chatWindow.scrollTop = chatWindow.scrollHeight;
     }
   }, [chats]);
