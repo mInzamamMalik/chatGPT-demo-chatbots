@@ -6,14 +6,35 @@ ChatGPT, powered by the GPT-3.5 language model, offers numerous benefits for bui
 
 <br>
 
-To run this project
+To get started
 
-```bash
-npm i && npm run start
-```
+1. Run server
 
-```bash
-cd frontend && npm i && npm run dev
-```
+   ```bash
+   npm i && npm run start
+   ```
 
-Get [OpenAI's API Key](https://platform.openai.com/account/api-keys) and place it inside .env file in the root of the project.
+1. Run frontend
+
+   ```bash
+   cd frontend && npm i && npm run dev
+   ```
+
+1. Get [OpenAI's API Key](https://platform.openai.com/account/api-keys) and place it inside .env file in the root of the project.
+
+1. Backend route
+
+   ```
+   http://localhost:5001/depression
+   ```
+
+1. Example body for backend
+
+   ```json
+   {
+     "text": " You:  testing ",
+     "gender": "Male",
+     "country": "Pakistan",
+     "start_sequence": " Counselor: "
+   }
+   ```
