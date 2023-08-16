@@ -12,7 +12,6 @@ export default function ChatFrom() {
   const [query, setQuery] = useState("");
   const [chats, setChats] = useState([]);
   let conversation = "";
-  console.log("🚀 ~ file: ChatFrom.jsx:5 ~ SERVER_URL:", SERVER_URL);
 
   const submitHandler = async (e) => {
     try {
@@ -33,7 +32,7 @@ export default function ChatFrom() {
         restart_sequence,
       };
 
-      const res = await axios.post(`${SERVER_URL}/depression`, sendingPara);
+      const res = await axios.post(`${SERVER_URL}/api/v1/depression`, sendingPara);
 
       console.log("response::: ", res?.data);
 
