@@ -1,4 +1,4 @@
-import { textGeneration } from "./textGeneration";
+import { textGeneration } from "./textGeneration.js";
 
 export const depressionResponseHandler = async (req, res) => {
   const rule = `The following is a conversation with a expert depression counselor and Psychiatrists. counselor is helpful and very friendly and shows empathy, love and affection occasionally. the patient is ${req.body.gender} from ${req.body.country}. \n`;
