@@ -1,5 +1,4 @@
-export const SERVER_URL = "http://localhost:5001";
-
-// export const SERVER_URL = process.browser
-//   ? "http://localhost:5001"
-//   : "myapp.cyclic.app";
+export const SERVER_URL =
+  process.env.NODE_ENV === "production"
+    ? "https://scary-glasses-fish.cyclic.app"
+    : "http://localhost:5001";
