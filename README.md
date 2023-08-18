@@ -2,7 +2,7 @@
 
 https://depression-counselor-chatbot.vercel.app/
 
-server: 
+server:
 https://depression-counselor-dot-learning-chatbot-393109.lm.r.appspot.com/
 
 ### The Depression Counselor Chatbot is an AI-powered project designed to provide support and assistance to individuals experiencing depression. This project utilizes the GPT-3.5 language model, an advanced AI technology developed by OpenAI, to create an empathetic and understanding virtual companion.

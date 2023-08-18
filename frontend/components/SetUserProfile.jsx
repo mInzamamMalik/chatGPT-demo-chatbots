@@ -29,7 +29,10 @@ export default function SetUserProfile() {
         >
           <p>Let&apos;s set your profile:</p>
 
-          <label htmlFor="countries" className="block font-medium text-gray-400">
+          <label
+            htmlFor="countries"
+            className="block font-medium text-gray-400"
+          >
             Select your gender
             <select
               className="mt-2 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-slate-700 outline-none focus:border-primary focus:ring-2 focus:ring-primary"
@@ -42,7 +45,10 @@ export default function SetUserProfile() {
             </select>
           </label>
 
-          <label htmlFor="countries" className="block font-medium text-gray-400">
+          <label
+            htmlFor="countries"
+            className="block font-medium text-gray-400"
+          >
             Select a country
             <select
               onChange={(e) => setCountry(e.target.value)}

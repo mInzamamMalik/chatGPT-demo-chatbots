@@ -1,39 +1,35 @@
 {
-	"info": {
-		"_postman_id": "1655e7da-1894-49ca-b9e3-343a627e0da0",
-		"name": "OpenAI",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "23050191"
-	},
-	"item": [
-		{
-			"name": "chatGPT",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n  \"text\": \" You:  testingng You:  testingng You:  testingng You:  testingng You:  testingng\",\n  \"gender\": \"Male\",\n  \"country\": \"Pakistan\",\n  \"start_sequence\": \" Counselor: \"\n}\n",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:5001/depression",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5001",
-					"path": [
-						"depression"
-					]
-				},
-				"description": "Open AI is being called from server"
-			},
-			"response": []
-		}
-	]
+  "info": {
+    "_postman_id": "1655e7da-1894-49ca-b9e3-343a627e0da0",
+    "name": "OpenAI",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "23050191"
+  },
+  "item": [
+    {
+      "name": "chatGPT",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"text\": \" You:  testingng You:  testingng You:  testingng You:  testingng You:  testingng\",\n  \"gender\": \"Male\",\n  \"country\": \"Pakistan\",\n  \"start_sequence\": \" Counselor: \"\n}\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5001/depression",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5001",
+          "path": ["depression"]
+        },
+        "description": "Open AI is being called from server"
+      },
+      "response": []
+    }
+  ]
 }

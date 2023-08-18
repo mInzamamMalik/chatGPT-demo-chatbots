@@ -26,9 +26,7 @@ export default function RootLayout({ children }) {
         style={font.style}
       >
         <Navbar />
-        <div className="container mx-auto p-4 sm:p-8">
-          {children}
-        </div>
+        <div className="container mx-auto p-4 sm:p-8">{children}</div>
         <Toaster />
         <Footer />
       </body>

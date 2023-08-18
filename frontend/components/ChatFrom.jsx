@@ -32,7 +32,10 @@ export default function ChatFrom() {
         restart_sequence,
       };
 
-      const res = await axios.post(`${SERVER_URL}/api/v1/depression`, sendingPara);
+      const res = await axios.post(
+        `${SERVER_URL}/api/v1/depression`,
+        sendingPara
+      );
 
       console.log("response::: ", res?.data);
 
