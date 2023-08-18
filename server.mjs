@@ -23,7 +23,7 @@ app.use((req, res, next) => {
 });
 
 // Routes
-app.get("/", (req, res) => res.send("server running"));
+app.get("/", (req, res) => res.send("counselor server running"));
 app.post("/api/v1/depression", depressionResponseHandler);
 
 app.listen(PORT, () => console.log(`Server running at ${PORT}`));
