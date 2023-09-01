@@ -40,7 +40,6 @@ export default function ChatFrom() {
       console.log("response::: ", res?.data);
 
       const gptReply = res?.data?.choices[0]?.text;
-      // const gptReply = `Welcome to our Depression ${profile.gender} Counselor ${profile.country} Chatbot! Our innovative chatbot, powered by the state-of-the-art GPT-3.5 language model, is designed to provide empathetic and supportive assistance to individuals struggling with depression.\n\nDepression is a serious mental health condition that affects millions of people worldwide, and seeking help is an important step towards recovery. Our chatbot serves as a virtual companion, providing a safe and confidential space for you to express your thoughts and emotions.`;
 
       setChats((prev) => [...prev, { counselor: true, text: gptReply }]);
 
@@ -57,7 +56,6 @@ export default function ChatFrom() {
   useEffect(() => {
     if (chatWindowRef.current) {
       const chatWindow = chatWindowRef.current;
-      // console.log("Scrolling to bottom...");
       chatWindow.scrollTop = chatWindow.scrollHeight;
     }
   }, [chats]);

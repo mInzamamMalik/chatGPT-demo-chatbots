@@ -10,8 +10,6 @@ import { usePathname } from "next/navigation";
 const navLinks = [
   { title: "home", link: "/", id: "1" },
   { title: "Chat", link: "/chat", id: "2" },
-  // { title: "Apple Store", link: "/apple-store", id: "3" },
-  // { title: "Grove Store", link: "/grove-store", id: "4" },
 ];
 
 export default function Navbar() {
