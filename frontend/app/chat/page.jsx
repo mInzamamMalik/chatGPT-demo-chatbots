@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { ChatFrom, SetUserProfile } from "@/components";
+import { ChatFrom, SetUserProfile, Loading } from "@/components";
 
 export default function page() {
   const [showProfileForm, setShowProfileForm] = useState(null);
@@ -12,7 +12,7 @@ export default function page() {
 
   return (
     <main className="bg-cover h-full bg-fixed bg-center bg-no-repeat">
-      {showProfileForm === null && "Loading..."}
+      {showProfileForm === null && <Loading />}
       {showProfileForm && (
         <SetUserProfile setShowProfileForm={setShowProfileForm} />
       )}
