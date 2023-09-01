@@ -1,20 +1,17 @@
 "use client";
-import { useState } from "react";
+import { useRef } from "react";
 import { toast } from "react-hot-toast";
 import { countries } from "@/data";
 
 export default function SetUserProfile({ setShowProfileForm }) {
-  const [gender, setGender] = useState("Male");
-  const [country, setCountry] = useState("Pakistan");
-
-  // const genderRef = useRef(null);
-  // const countryRef = useRef(null);
+  const genderRef = useRef(null);
+  const countryRef = useRef(null);
 
   const addProfileToLocalStorage = (e) => {
     e.preventDefault();
 
-    // const gender = genderRef?.current?.value;
-    // const country = countryRef?.current?.value;
+    const gender = genderRef?.current?.value;
+    const country = countryRef?.current?.value;
 
     localStorage.setItem("profile", JSON.stringify({ gender, country }));
     toast.success(`Profile updated successfully!`);
@@ -31,8 +28,8 @@ export default function SetUserProfile({ setShowProfileForm }) {
       <label htmlFor="countries" className="block font-medium text-gray-400">
         Select your gender
         <select
+          ref={genderRef}
           className="mt-2 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-slate-700 outline-none focus:border-primary focus:ring-2 focus:ring-primary"
-          onChange={(e) => setGender(e.target.value)}
           name="gender"
           required
         >
@@ -44,7 +41,7 @@ export default function SetUserProfile({ setShowProfileForm }) {
       <label htmlFor="countries" className="block font-medium text-gray-400">
         Select a country
         <select
-          onChange={(e) => setCountry(e.target.value)}
+          ref={countryRef}
           className="mt-2 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 capitalize text-slate-700 outline-none focus:border-primary focus:ring-2 focus:ring-primary"
           name="country"
         >
