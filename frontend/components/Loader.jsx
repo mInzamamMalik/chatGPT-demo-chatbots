@@ -1,4 +1,3 @@
-// style="margin: auto; background: none; display: block; shape-rendering: auto;"
 const LoadingSvg = (
   <svg
     className="h-48 w-48 fill-blue-700 md:h-64 md:w-64"

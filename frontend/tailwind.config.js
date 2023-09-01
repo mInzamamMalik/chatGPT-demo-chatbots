@@ -10,7 +10,6 @@ module.exports = {
       colors: {
         primary: "var(--primary-color)",
         secondary: "var(--secondary-color)",
-        // accentLow: "var(--accent-low-op)",
       },
     },
   },
