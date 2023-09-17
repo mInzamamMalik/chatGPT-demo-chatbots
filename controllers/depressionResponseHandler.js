@@ -1,15 +1,22 @@
 import { textGeneration } from "./textGeneration.js";
 
 export const depressionResponseHandler = async (req, res) => {
+  const { text, gender, country, start_sequence } = req.body;
+
   const rule = `The following is a conversation with a expert depression counselor and Psychiatrists. counselor is helpful and very friendly and shows empathy, love and affection occasionally. the patient is ${req.body.gender} from ${req.body.country}. \n`;
 
+  if (!text || !gender || !country || !start_sequence) {
+    res.status(422).send({ message: "Send all parameters!" });
+    return;
+  }
+  // text limitation added to avoid misuse of tokens
   if (
-    !req.body.text ||
-    !req.body.gender ||
-    !req.body.country ||
-    !req.body.start_sequence
+    text.length > 250 ||
+    gender.length > 10 ||
+    country.length > 15 ||
+    start_sequence.length > 100
   ) {
-    res.status(422).send({ message: "Send all parameters" });
+    res.status(422).send({ message: "Text length limit exceeded!" });
     return;
   }
 
