@@ -1,6 +1,6 @@
 import "./globals.css";
 import { Outfit } from "next/font/google";
-import { Navbar, Footer } from "@/components";
+import { Navbar, Footer } from "@/components/index";
 import { Toaster } from "react-hot-toast";
 
 const font = Outfit({

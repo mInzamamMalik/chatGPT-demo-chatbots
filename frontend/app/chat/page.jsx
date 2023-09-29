@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { ChatFrom, SetUserProfile, Loading } from "@/components";
+import { ChatFrom, SetUserProfile, Loading } from "@/components/index";
 
 export default function page() {
   const [showProfileForm, setShowProfileForm] = useState(null);

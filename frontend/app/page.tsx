@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "@/components";
+import { Button } from "@/components/index";
 import cbImg from "@/public/chatbot1.jpg";
 
 export default function Home() {
